@@ -1,0 +1,79 @@
+{% extends "headers.html" %}
+{% block content %}
+
+<!-- Main Content -->
+<main class="bg-light bg-gradient" style="margin-top: 0;">
+  <h2 class="display-1 text-center" style="margin-top: 60px;"> About Us</h2>
+
+
+  <div class="card border-primary" style="border-left-width: thick">
+
+    <div class="card-body">
+      <img src="{{url_for('static',filename='logo.png')}}" class="img-fluid" alt="About Us" style="border-radius: 10px; float: right; width: 400px; height: 450px;"/>
+
+      <p class="card-text">
+        Welcome to the Tourism Recommendation System, your intelligent travel companion built to transform the way you explore 
+        the world. We believe that every traveler deserves personalized guidance that matches their interests, budget, and the 
+        best time to travel. That’s why our platform is designed to recommend the right destination at the right time, providing 
+        you with tailor-made suggestions to make every trip truly extraordinary.
+      </p>
+      <p class="card-text">
+        
+      </p>
+      <p class="card-text">
+        In today’s fast-paced world, planning a perfect vacation can be overwhelming—especially when considering seasonal 
+        conditions, budget limitations, and travel modes. Our Tourism Recommendation System takes away the guesswork by using 
+        advanced artificial intelligence, data analytics, and real-time information to recommend destinations that are ideal 
+        for your chosen travel period, weather preferences, and travel style.
+      </p>
+      <p class="card-text">
+        Whether you love mountain adventures, beach escapes, cultural heritage tours, or peaceful nature retreats, 
+        our platform suggests the best places to visit, the perfect time to go, and various travel options—from road routes 
+        to flights and trains—to make your journey smooth and stress-free.
+      </p>
+      <p class="card-text">
+        Our mission is to make travel planning simple, intelligent, and accessible to everyone, especially budget-conscious and 
+        experience-seeking travelers. With interactive features, seasonal recommendations, smart travel insights, and budget 
+        optimization tools, we ensure that your next journey is not only memorable but also perfectly timed.
+      </p>
+    </div>
+  </div>
+</main>
+<!-- Share Icon -->
+<div class="floating-container">
+  <div class="floating-button">
+    <i class="fa-solid fa-share-from-square"></i>
+  </div>
+  <!-- Elements -->
+  <div class="element-container">
+    <!-- Facebook -->
+    <a class="float-element" href="https://www.facebook.com/profile.php?id=100037129120224" target="_blank" style="background-color: #3b5998;">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="float-element" href="https://www.linkedin.com/in/rakesh-reddy-bandaru-5a058830b/" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <!-- Email -->
+    <a class="float-element" href="https://mail.google.com/mail/?view=cm&fs=1&to=mittu9908@gmail.com" target="_blank">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white fixed-bottom" style="background-color: #030303; padding: 5px 0; font-size: 14px;">
+  <div style="margin: 0;">
+    <p style="margin: 2px 0;">&copy; {{now.year}} Copyright</p>
+    <p style="margin: 2px 0;">
+      Powered by <strong>Tourism Recommendation System</strong> – <span style="color: #0ed9ddd6;">AI-Powered Travel Experience Planner</span>
+    </p>
+  </div>
+</footer>
+
+{% endblock %}
+</body>
+
+</html>

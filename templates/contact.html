@@ -1,0 +1,133 @@
+{% extends "headers.html" %}
+{% block content %}
+
+<style>
+  /* Custom styling */
+  .floating-container .float-element {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .float-element i {
+    font-size: 24px;
+    color: white;
+  }
+
+  /* Email Icon - Gmail Color */
+  a[href*="mail.google.com"] {
+    background-color: #D44638 !important;
+  }
+
+  /* LinkedIn Icon */
+  a[href*="linkedin.com"] {
+    background-color: #0077B5 !important;
+  }
+
+  /* Footer styling */
+  footer {
+    padding: 5px 0 !important;
+    font-size: 14px;
+  }
+</style>
+
+<!-- Main Content -->
+<main>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="display-7">
+      If you have any questions or suggestions, please feel free to contact us. We are always looking for ways to improve our service.
+    </p>
+    <div style="display: none;" class="alert alert-success" id="success-alert" role="alert">
+      Thank you for contacting us! We will get back to you soon.
+    </div>
+
+    <form id="form">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name :</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ user_name }}">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email :</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ user_email }}">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message:</label>
+        <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+      </div>
+      <input type="submit" class="btn btn-primary" id="button" value="Submit">
+    </form>
+  </div>
+</main>
+
+<!-- Share Icon -->
+<div class="floating-container">
+  <div class="floating-button">
+    <i class="fa-solid fa-share-from-square"></i>
+  </div>
+  <!-- Elements -->
+  <div class="element-container">
+    <!-- Facebook -->
+    <a class="float-element" href="https://www.facebook.com/profile.php?id=100037129120224" target="_blank" style="background-color: #3b5998;">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="float-element" href="https://www.linkedin.com/in/rakesh-reddy-bandaru-5a058830b/" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <!-- Email -->
+    <a class="float-element" href="https://mail.google.com/mail/?view=cm&fs=1&to=mittu9908@gmail.com" target="_blank">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white fixed-bottom" style="background-color: #030303; padding: 5px 0; font-size: 14px;">
+  <div style="margin: 0;">
+    <p style="margin: 2px 0;">&copy; {{now.year}} Copyright</p>
+    <p style="margin: 2px 0;">
+      Powered by <strong>Tourism Recommendation System</strong> – <span style="color: #0ed9ddd6;">AI-Powered Travel Experience Planner</span>
+    </p>
+  </div>
+</footer>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- EmailJS Setup -->
+<script type="text/javascript">
+  emailjs.init('Public Key') // Replace with your actual public key
+</script>
+
+<script>
+  const btn = document.getElementById('button');
+  const alerter = document.getElementById('success-alert');
+
+  document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    btn.value = 'Submitting...';
+
+    const serviceID = 'service_id'; // Replace with your service_id
+    const templateID = 'template_id'; // Replace with your template_id
+
+    emailjs.sendForm(serviceID, templateID, this)
+      .then(() => {
+        alerter.style.display = 'block';
+        btn.value = 'Submitted';
+      }, (err) => {
+        btn.value = 'Submit';
+        alert(JSON.stringify(err));
+      });
+  });
+</script>
+
+{% endblock %}
+</body>
+</html>
