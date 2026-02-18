@@ -1,0 +1,4 @@
+CREATE DATABASE travel_app_db;
+CREATE USER 'flask_user'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+GRANT ALL PRIVILEGES ON travel_app_db.* TO 'flask_user'@'localhost';
+FLUSH PRIVILEGES;
